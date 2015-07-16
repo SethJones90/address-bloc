@@ -48,3 +48,6 @@ RSpec.describe AddressBook do
 	end
 
 end
+
+#everyday rails rspec book
+#https://relishapp.com/rspec
