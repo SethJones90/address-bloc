@@ -105,6 +105,39 @@ end
 		end 
 	end
 
+		context ".import_from_csv again" do
+		it "imports the correct number of entries" do
+
+			book.import_from_csv("entries_2.csv")
+			book_size = book.entries.size
+
+			expect(book_size). to eql 3
+		end
+
+		it "imports the 1st entry" do
+			book.import_from_csv("entries_2.csv")
+
+			entry_one = book.entries[0]
+			check_entry(entry_one, "Brandon", "555-555-1317","brandon@blocmail.com")
+		end 
+		
+		it "imports the 2nd entry" do
+			book.import_from_csv("entries_2.csv")
+
+			entry_two = book.entries[1]
+			check_entry(entry_two, "Evan", "555-555-2954","evan@blocmail.com")
+
+		end
+		
+		it "imports the 3rd entry" do
+			book.import_from_csv("entries_2.csv")
+
+			entry_three = book.entries[2]
+			check_entry(entry_three, "Seth", "555-555-2973","seth@blocmail.com")
+
+		end
+	end
+
 end
 
 #everyday rails rspec book
