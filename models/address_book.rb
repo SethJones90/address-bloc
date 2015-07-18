@@ -25,6 +25,37 @@ class AddressBook
 
 	end
 
+	def binary_search(name)
+		lower = 0
+		upper = entries.length - 1
+
+		while lower <= upper
+
+			mid = (lower + upper) / 2
+			mid_name = entries[mid].name
+
+			if name == mid_name
+				return entries[mid]
+			elsif name < mid_name
+				upper = mid - 1
+			elsif name > mid_name
+				lower = mid + 1
+			end
+		end
+
+		return nil
+	end
+
+
+	def iterative_search(name)
+		entries.each do |entry| 
+			if entry.name == name
+        		return entry
+    		end
+		end
+		return nil
+	end
+
 	def import_from_csv(file_name)
 		csv_text = File.read(file_name)
 		csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
