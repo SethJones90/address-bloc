@@ -15,8 +15,7 @@ class MenuController
 		puts "3 - Search for an entry"
 		puts "4 - Import entries from a CSV"
 		puts "5 - View entry number n"
-		puts "6 - Detonate all entries"
-		puts "7 - Exit"
+		puts "6 - Exit"
 		print "Enter your selection:"
 
 		selection = gets.to_i
@@ -42,11 +41,8 @@ class MenuController
 			system "clear"
 			view_entry_n
 			main_menu
-		when 6 
-			system "clear"
-			nuke
-			main_menu
-		when 7
+
+		when 6
 			puts "Good-bye!"
 
 			exit(0)
@@ -54,22 +50,6 @@ class MenuController
 			system "clear"
 			puts "Sorry, that is not a valid input"
 			main_menu
-		end
-	end
-
-	def nuke
-		puts "Are you sure you want to do this? (yes/no)"
-		boom = gets.chomp
-		
-		case boom
-		
-		when "yes"
-		@address_book.entries.clear
-		puts "BOOM!"
-
-		when "no"
-			main_menu
-
 		end
 	end
 
